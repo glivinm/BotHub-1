@@ -9,6 +9,7 @@
     The userbot will work without setting the non-mandatory environment variables.
     Please report any issues to the support group: https://t.me/Bot_Hub_Official_Group.
 
+Modded by [@justgl](https://telegram.dog/justgl)
 
 design
 
