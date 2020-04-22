@@ -54,15 +54,15 @@ async def _(event):
     caption = """Detailed INFO of this user:
 
 🔖ID: <code>{}</code>
-🤵Name: <a href='tg://user?id={}'>{}</a>
-🤦‍♂️ Last Name: {}
-✍️Bio: {}
-🌏Data Centre Number: {}
+🤵Ім'я (Name): <a href='tg://user?id={}'>{}</a>
+🤦‍♂️ Прізвище (Last Name): {}
+✍️Біо (Bio): {}
+🌏Номер дата-центру (Data Centre Number): {}
 🖼Number of Profile Pics: {}
 🔏Restricted: {}
-🌐Verified: {}
-🤖Bot: {}
-👥Groups in Common: {}
+🌐Верифікований (Verified): {}
+🤖Бот (Bot): {}
+👥Спільних груп (Groups in Common): {}
 
 
 List Of Telegram Data Centres:
