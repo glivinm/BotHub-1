@@ -57,17 +57,17 @@ LOGS = Config.LOGGER
 # ========================= CONSTANTS ============================
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
-    "`HeY! This is an automated message.\n\n`"
-    "`I haven't approved you to PM yet.`"
-    "`Please wait for me to look in, I mostly approve PMs.\n\n`"
-    "`Until then, please don't spam my Mastor's PM, you'll get blocked and reported if you do so!`")
+    "`Доброго дня! Це автоматизоване повыдомлення!\n\n`"
+    "`Вам заборонений домтуп до повідомлень.`"
+    "`Зачекайте, коли коритсувач дозволить вам доступ\n\n`"
+    "`Якщо ви будете спамити - я кину скаргу на вас (WAIT FOR APPROVE)`")
 # =================================================================
 
 
 @borg.on(events.NewMessage(incoming=True))
 async def permitpm(event):
-    """ Prohibits people from PMing you without approval. \
-        Will block retarded nibbas automatically. """
+    """ Якщо будете писати без дозволу, тоді... \
+        Амінь..... """
     if PM_AUTO_BAN:
         self_user = await event.client.get_me()
         if event.is_private and event.chat_id != 777000 and event.chat_id != self_user.id and not (
@@ -109,8 +109,8 @@ async def permitpm(event):
 
                 if COUNT_PM[event.chat_id] > 4:
                     await event.respond(
-                        "`You were spamming my Mastor's PM, which I didn't like.`\n"
-                        "`You have been BLOCKED and reported as SPAM, until further notice.`"
+                        "`Ви не послухали мої попередження і перевищили ліміт повідомлень`\n"
+                        "`Я вас БЛОКУЮ та надсилаю скаргу за СПАМ (BLOCK AND REPORT)`"
                     )
 
                     try:
@@ -225,7 +225,7 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        await apprvpm.edit("`User may already be approved.`")
+        await apprvpm.edit("`Користувачу вже було дозволено писати повідомлення.`")
         return
 
     await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `approved to PM!`")
@@ -269,7 +269,7 @@ async def disapprovepm(disapprvpm):
         await disapprvpm.client.send_message(
             BOTLOG_CHATID,
             f"[{name0}](tg://user?id={disapprvpm.chat_id})"
-            " was disapproved to PM you.",
+            " було заборонено доступ до приватних повідомлень (DISAPPROVED).",
         )
 
 
@@ -320,7 +320,7 @@ async def unblockpm(unblock):
         await unblock.client.send_message(
             BOTLOG_CHATID,
             f"[{name0}](tg://user?id={replied_user.id})"
-            " was unblocc'd!.",
+            " було розблоковано!!!.",
         )
 
 
